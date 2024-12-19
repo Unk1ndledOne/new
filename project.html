@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Продажа игр</title>
+  <link rel="stylesheet" href="https://unpkg.com/simplebar@5.3.6/dost/simplebar.css">
+  <script src="https://unpkg.com/simplebar@5.3.6/dist/simplebar.js"></script>
+
+
+  <style>
+    html {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+      border: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background-color: rgb(184, 223, 148);
+    }
+
+    body {
+      background-image: url('WhiteT.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 0;
+      padding-top: 230px;
+    }
+
+    body.dark-mode {
+      background-color: #222;
+      color: #FFF;
+    }
+
+    .theme-toggle {
+      background-color: rgb(184, 223, 148);
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .theme-toggle:hover {
+      background-color: rgb(167, 196, 140);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: yes;
+      color: rgb(69, 27, 184);
+      font-weight: bold;
+    }
+
+    .Search {
+      margin-top: 20px;
+    }
+
+    .Search input {
+      padding: 10px;
+      width: 300px;
+    }
+
+    .Search button {
+      padding: 10px 20px;
+      background-color: white;
+      border: none;
+      cursor: pointer;
+      border: #222;
+    }
+    .Search button:hover{
+      transform: scale(1.04);
+    }
+
+    main {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .products {
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .products img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-top: 10px;
+    }
+
+    p {
+      margin-top: 20px;
+      font-weight: bolder;
+    }
+
+    a {
+      color: red;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: rgb(184, 223, 148);
+      padding: 10px 0;
+      text-align: center;
+      color: #FFF;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .contact-info {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    .contact-info a {
+      color: #FFF;
+      text-decoration: none;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .social-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 5px;
+    }
+
+    .subscription-form {
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .subscription-form input {
+      font-family: 'Comic Sans MS', cursive;
+      width: 200px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .subscription-form button {
+      font-family: 'Comic Sans MS', cursive;
+      background-color: #FF8C5E;
+      color: #FFF;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    #scrollToTopButton {
+      font-family: 'Comic Sans MS', cursive;
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgb(102, 134, 68);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #rainCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .whatsapp-button {
+      background-color: #25d366;
+      color: white;
+      width: 100px;
+      height: 100px;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .whatsapp-block {
+      position: fixed;
+      bottom: 60px;
+      right: 10px;
+      z-index: 1000;
+    }
+
+    .mammoth-descriprion {
+      background-color: #25d366;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 20;
+    }
+
+    .mammoth-descriprion h2 {
+      font-size: 24px;
+      color: chartreuse;
+    }
+
+    .mammoth-descriprion ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .mammoth-descriprion li {
+      margin: 20px 0;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #fff;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .mammoth-descriprion li:hover {
+      transform: scale(1.02);
+    }
+
+    .mammoth-descriprion image {
+      width: 100px;
+      height: 100px;
+      border-radius: 5px;
+    }
+
+    .scrollable-container {
+      max-height: 300px;
+      overflow-y: hidden;
+    }
+
+    .products:hover{
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .whatsapp-button:hover{
+      background-color: #FF8C5E;
+      color:#FFF;
+      transition: background-color 0.3s ease;
+    }
+    .theme-toggle:hover{
+      transform: scale(1.02);
+
+    }
+
+    .social-icon:hover{
+      background-color: #FFF;
+      border-radius: 50%;
+      transform: scale(1.2);
+      
+    }
+
+    .contact-info:hover{
+      background-color: rgb(112, 173, 110);
+      color:#FFF;
+      transition: background-color 0.3s ease , color 0.3s ease;
+    }
+
+    .filter{
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .filter button{
+      font-family: 'Comic Sans MS', cursive;
+      background-color: #61997f;
+      color:#FFF;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      margin-left: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .filter button:hover{
+      transform: scale(1.02);
+    }
+
+    .situative-items{
+            background-color: rgb(184, 223, 148);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        
+
+        .situative-items h2{
+            font-size: 24px;
+            color: #ff5733;
+        }
+
+        .situative-items ul{
+            list-style: none;
+            padding: 0;
+        }
+
+        .situative-items li{
+            margin: 20px, 0;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            transition: transform 0.35;
+            cursor: pointer;
+        }
+
+        .situative-items li:hover{
+            transform: scale(1.02);
+        }
+
+        .item-image{
+            width: 200px;
+            height: 150px;
+            border-radius: 5px;
+        }
+
+        .scrollable-container{
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="project.html" class="logo">Игры и ключи</a>
+    <nav>
+      <ul>
+        <li><a href="project.html">Главная</a></li>
+        <li><a href="page2.html">Видео</a></li>
+        <li><a href="page3.html">Товары</a></li>
+      </ul>
+    </nav>
+    <div class="Search">
+      <input type="text" placeholder="Поиск по сайту">
+      <button>Найти</button>
+    </div>
+    <button onclick="scrollToTop()" id="scrollToTopButton">Наверх</button>
+  <!-- <canvas id="rainCanvas"></canvas> --> 
+    <button class="theme-toggle" onclick="toggleDarkMode()"> Тёмная тема </button>
+  </header>
+
+
+
+  <main>
+
+    <div class="filter">
+      <label><input type="checkbox" id = "filterGame"> Игры </label>
+      <label><input type="checkbox" id = "filterPass"> Подписки </label>
+      <label><input type="checkbox" id = "filterLink"> Другие предложения </label>
+      <button onclick="applyFilter()" class="filter-button">Применить фильтр</button>
+    </div>
+
+    <section>
+    <h1>Популярные товары</h1>
+    <div class="products" data-category = "game">
+      <img src="logo1.png" alt="product1">
+      <h2>Лицензия Minecraft (Java + Bedrock)</h2>
+      <p>7000₸</p>
+    </div>
+    <div class="products" data-category = "pass">
+      <img src="logo2.png" alt="product1">
+      <h2>Xbox Game-Pass (12 месяцев)</h2>
+      <p style="color:red"><strike>24000тг</strike> 18000₸</p>
+    </div>
+    <div class="products" data-category = "pass">
+      <img src="logo2.png" alt="product1">
+      <h2>Xbox Game-Pass (1 месяц)</h2>
+      <p>2000₸</p>
+    </div>
+    <div class="products" data-category = "link">
+      <a href="page2.html"><img src="youtube.png" alt="product1"></a>
+      <h2><u>Страница с видеороликами</u></h2>
+      <p>Смотрите обзоры на товары</p>
+    </div>
+    <div class="products" data-category = "link">
+      <a href="page3.html"><img src="cart.png" alt="product1"></a>
+      <h2><u>Все товары</u></h2>
+      <p>Смотрите не только популярные товары</p>
+    </div>
+    </div>
+    </section>
+
+    <div class="situative-items">
+      <h2>Преимущества сайта</h2>
+      <p>Почему надо брать у нас</p>
+      <div class="simplebar scrollable-container">
+          <ul>
+              <li>
+                  <h3>Ежедневные акции</h3>
+                  <img class="mid" src="action.jpg" alt="mid">
+                  <p>Чем дороже покупка тем больше скидка</p>
+              </li>
+              <li>
+                  <h3>Надёжные ключи с возвратом в течении часа</h3>
+                  <img class="ez" src="keys.jpg" alt="ez">
+                  <p>Возвращается только 80% стоимости, но это неважно</p>
+              </li>
+              <li>
+                  <h3>Довольные покупатели</h3>
+                  <img class="hard" src="dovolen.jpg" alt="hard">
+                  <p>Вы можете и сами оставить отзыв в социальных сетях (ссылки на инстаграм, ютуб и телеграм ниже)</p>
+              </li>
+          </ul>    
+      </div>
+  </div>
+
+  </main>
+  <div id="whatsapp-block" class="whatsapp-block">
+    <a href="https://api.whatsapp.com/send?phone=87077070707" target="_blank">
+      <button class="whatsapp-button">Написать нам</button>
+    </a>
+  </div>
+</body>
+
+<footer>
+  <div class="footer-container">
+    <div class="contact-info">
+      <h3>Контактная информация</h3>
+      <p><a href="mailto:info@example.com">info@example.com</a></p>
+      <p><a href="tel:+123456789">+1 (234) 567-89</a></p>
+      <p>Адрес: ул. Абая, д. 123, г. Алматыㅤ</p>
+    </div>
+    <div class="social-links">
+      <a href="https://www.youtube.com"><img src="youtube.png" alt="YouTube" class="social-icon"></a>
+      <a href="https://www.instagram.com"><img src="instagram.png" alt="Instagram" class="social-icon"></a>
+      <a href="https://www.telegram.org"><img src="telegram.png" alt="Telegram" class="social-icon"></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.querySelector(".Search input");
+    const searchButton = document.querySelector(".Search button");
+    const products = document.querySelectorAll(".products");
+
+    searchButton.addEventListener("click", function () {
+      const searchTerm = searchInput.value.trim().toLowerCase();
+      if (searchTerm === "") {
+        products.forEach(product => {
+          product.style.display = "block";
+        });
+      } else {
+        products.forEach(product => {
+          const productName = product.querySelector("h2").textContent.toLowerCase();
+          if (productName.includes(searchTerm)) {
+            product.style.display = "block";
+          } else {
+            product.style.display = "none";
+          }
+        });
+      }
+    });
+  });
+
+  window.onscroll = function () {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("scrollToTopButton").style.display = "block";
+    } else {
+      document.getElementById("scrollToTopButton").style.display = "none";
+    }
+  };
+
+  document.getElementById("scrollToTopButton").onclick = function () {
+    scrollToTop();
+  };
+
+  function scrollToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  var canvas = document.getElementById('rainCanvas');
+  var ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  var drops = [];
+
+  function createDrop() {
+    return {
+      x: Math.random() * canvas.width,
+      y: Math.random() * -canvas.height,
+      speed: Math.random() * 10 + 5,
+      length: Math.random() * 20 + 10
+    };
+  }
+  for (var i = 0; i < 100; i++) {
+    drops.push(createDrop());
+  }
+
+  function drawRain() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (var i = 0; i < drops.length; i++) {
+      var drop = drops[i];
+      ctx.beginPath();
+      ctx.moveTo(drop.x, drop.y);
+      ctx.lineTo(drop.x, drop.y + drop.length);
+      ctx.strokeStyle = '#00F';
+      ctx.stroke();
+      drop.y += drop.speed;
+      if (drop.y > canvas.height) {
+        drops[i] = createDrop();
+      }
+    }
+  }
+
+  function animateRain() {
+    drawRain();
+    requestAnimationFrame(animateRain);
+  }
+  animateRain();
+
+  function parallaxScroll() {
+    const body = document.querySelector('body');
+    const scrolled = window.pageYOffset = -(scrolled * 0.3) + 'px';
+  }
+  window.addEventListener('scroll', parallaxScroll);
+
+  function toggleDarkMode() {
+    var body = document.body;
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+      document.querySelector('.theme-toggle').innerText = 'Светлая тема';
+      body.style.backgroundImage = "url(DarkT.jpg)";
+    } else {
+      document.querySelector('.theme-toggle').innerText = 'Тёмная тема';
+      body.style.backgroundImage = "url(WhiteT.jpg)";
+    }
+  }
+
+  const whatsappButton = document.querySelector('.whatsapp-button');
+  function changeButtonSize() {
+    whatsappButton.style.transition = 'all is easy-in-out';
+    const currentSize = parseFloat(getComputedStyle(whatsappButton).widht);
+    const newSize = currentSize === 150 ? 100 : 150;
+    whatsappButton.style.width = newSize + 'px';
+
+    whatsappButton.style.height = newSize + 'px';
+  }
+  setInterval(changeButtonSize, 2000);
+
+  new SimpleBar(document.querySelector('.scrollable-container'));
+
+  const mammothItems = document.querySelectorAll('.mammoth-description li');
+  mammothItems.forEach((item) => {
+    item.addEventListener('click', () => {
+      item.classList.toggle('active');
+    });
+  });
+
+  function applyFilter() {
+    var filterGame = document.getElementById('filterGame').checked;
+    var filterPass = document.getElementById('filterPass').checked;
+    var filterLink = document.getElementById('filterLink').checked;
+    var products = document.querySelectorAll('.products');
+
+    for (var i = 0; i < products.length; i++) {
+        var product = products[i];
+        var category = product.dataset.category;
+        if ((filterGame && category === 'game') ||
+            (filterPass && category === 'pass') ||
+            (filterLink && category === 'link')) {
+            product.style.display = '';
+        } else {
+            product.style.display = 'none';
+        }
+    }
+}
+
+
+
+
+</script>
+
+</html>

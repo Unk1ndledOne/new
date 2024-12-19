@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Продажа игр</title>
+
+  <style>
+    html{
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    header {
+      padding: 20px;
+      text-align: center;
+      border: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background-color: rgb(184, 223, 148);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: yes;
+      color: rgb(69, 27, 184);
+      font-weight: bold;
+    }
+
+    .Search {
+      margin-top: 20px;
+    }
+
+    .Search input {
+      padding: 20px;
+      width: 300px;
+    }
+
+    .Search button {
+      padding: 10px 20px;
+      background-color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    main {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .products {
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .products img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-top: 10px;
+    }
+
+    p {
+      margin-top: 20px;
+      font-weight: bolder;
+    }
+
+    a {
+      color: red;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: rgb(184, 223, 148);
+      padding: 10px 0;
+      text-align: center;
+      color: #FFF;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .contact-info {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    .contact-info a {
+      color: #FFF;
+      text-decoration: none;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .social-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 5px;
+    }
+
+    .subscription-form {
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .subscription-form input {
+      font-family: 'Comic Sans MS', cursive;
+      width: 200px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .subscription-form button {
+      font-family: 'Comic Sans MS', cursive;
+      background-color: #FF8C5E;
+      color: #FFF;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    #scrollToTopButton {
+      font-family: 'Comic Sans MS', cursive;
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgb(102, 134, 68);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    body{  
+            background-image: url('WhiteT.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 20;
+            padding-top: 230px;
+        }
+            body.dark-mode{
+            background-color: #222;
+            color: #FFF;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+        }
+        
+        .theme-toggle{
+            background-color:  rgb(184, 223, 148);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .theme-toggle:hover{
+            background-color:  rgb(125, 151, 100);
+        }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="project.html" class="logo">Игры и ключи</a>
+    <nav>
+        <ul>
+            <li><a href="project.html">Главная</a></li>
+            <li><a href="page2.html">Видео</a></li>
+            <li><a href="page3.html">Товары</a></li>
+        </ul>
+    </nav>
+    <div class="Search">
+        <input type="text" placeholder="Поиск по сайту">
+        <button>Найти</button>
+    </div>
+    <button onclick="scrollToTop()" id="scrollToTopButton">Наверх</button>
+    <button class="theme-toggle" onclick="toggleDarkMode()"> Тёмная тема  </button>
+
+</header>
+
+
+
+  <main>
+    <section>
+      <h1>Популярные товары</h1>
+      <div class="products">
+        <img src="logo1.png" alt="product1">
+        <h2>Лицензия Minecraft (Java + Bedrock)</h2>
+        <p>7000₸</p>
+      </div>
+      <div class="products">
+        <img src="logo2.png" alt="product1">
+        <h2>Xbox Game-Pass (12 месяцев)</h2>
+        <p style="color:red"><strike>24000тг</strike> 18000₸</p>
+      </div>
+      <div class="products">
+        <img src="logo2.png" alt="product1">
+        <h2>Xbox Game-Pass (1 месяц)</h2>
+        <p>2000₸</p>
+      </div>
+      <div class="products">
+        <img src="logo1.png" alt="product1">
+        <h2>Лицензия Minecraft (Java + Bedrock)</h2>
+        <p>7000₸</p>
+      </div>
+      <div class="products">
+        <img src="logo2.png" alt="product1">
+        <h2>Xbox Game-Pass (12 месяцев)</h2>
+        <p style="color:red"><strike>24000тг</strike> 18000₸</p>
+      </div>
+      <div class="products">
+        <img src="logo2.png" alt="product1">
+        <h2>Xbox Game-Pass (1 месяц)</h2>
+        <p>2000₸</p>
+      </div>
+    </section>
+  </main>
+</body>
+
+  <footer>
+    <div class="footer-container">
+      <div class="contact-info">
+        <h3>Контактная информация</h3>
+        <p><a href="mailto:info@example.com">info@example.com</a></p>
+        <p><a href="tel:+123456789">+1 (234) 567-89</a></p>
+        <p>Адрес: ул. Абая, д. 123, г. Алматы</p>
+      </div>
+      <div class="social-links">
+        <a href="https://www.youtube.com"><img src="youtube.png" alt="YouTube" class="social-icon"></a>
+        <a href="https://www.instagram.com"><img src="instagram.png" alt="Instagram" class="social-icon"></a>
+        <a href="https://www.telegram.org"><img src="telegram.png" alt="Telegram" class="social-icon"></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const searchInput = document.querySelector(".Search input");
+      const searchButton = document.querySelector(".Search button");
+      const products = document.querySelectorAll(".products");
+
+      searchButton.addEventListener("click", function () {
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        if (searchTerm === "") {
+          products.forEach(product => {
+            product.style.display = "block";
+          });
+        } else {
+          products.forEach(product => {
+            const productName = product.querySelector("h2").textContent.toLowerCase();
+            if (productName.includes(searchTerm)) {
+              product.style.display = "block";
+            } else {
+              product.style.display = "none";
+            }
+          });
+        }
+      });
+    });
+
+    window.onscroll = function () {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("scrollToTopButton").style.display = "block";
+      } else {
+        document.getElementById("scrollToTopButton").style.display = "none";
+      }
+    };
+
+    document.getElementById("scrollToTopButton").onclick = function () {
+      scrollToTop();
+    };
+
+    function scrollToTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+    function toggleDarkMode(){
+          var body = document.body;
+          body.classList.toggle('dark-mode');
+          if (body.classList.contains('dark-mode')){
+            document.querySelector('.theme-toggle').innerText = 'Светлая тема';
+            body.style.backgroundImage = "url(DarkT.jpg)";
+          }
+          else{
+            document.querySelector('.theme-toggle').innerText = 'Тёмная тема';
+            body.style.backgroundImage = "url(WhiteT.jpg)";
+          }
+      }
+  </script>
+
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Продажа игр</title>
+
+    <style>
+        html{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        header {
+            padding: 20px;
+            text-align: center;
+            border: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background-color: rgb(184, 223, 148);
+        
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: yes;
+            color: rgb(69, 27, 184);
+            font-weight: bold;
+        }
+
+        .Search {
+            margin-top: 20px;
+        }
+
+        .Search input {
+            padding: 20px;
+            width: 300px;
+        }
+
+        .Search button {
+            padding: 10px 20px;
+            background-color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        main {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .slider-container {
+            position: relative;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            flex: 0 0 33.333%;
+            text-align: center;
+        }
+
+        iframe {
+            width: 100%;
+            height: auto;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid rgb(184, 223, 148);
+            color: rgb(184, 223, 148);
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 1;
+            padding: 10px 20px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .prev {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(255, 255, 255, 0.8);
+                border: 2px solid rgb(184, 223, 148);
+                color: rgb(184, 223, 148);
+                font-size: 20px;
+                cursor: pointer;
+                z-index: 1;
+                padding: 10px 20px;
+                transition: background 0.3s, color 0.3s;
+                left: 10px; /* Измените значение отступа слева по вашему усмотрению */
+            }
+
+            .next {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(255, 255, 255, 0.8);
+                border: 2px solid rgb(184, 223, 148);
+                color: rgb(184, 223, 148);
+                font-size: 20px;
+                cursor: pointer;
+                z-index: 1;
+                padding: 10px 20px;
+                transition: background 0.3s, color 0.3s;
+                right: 10px; /* Измените значение отступа справа по вашему усмотрению */
+            }
+
+        .prev:hover,
+        .next:hover {
+            background: rgb(184, 223, 148);
+            color: #fff;
+        }
+
+        footer {
+            background-color: rgb(184, 223, 148);
+            padding: 10px 0;
+            text-align: center;
+            color: #FFF;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .contact-info a {
+            color: #FFF;
+            text-decoration: none;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 5px;
+        }
+
+        .subscription-form {
+            font-family: 'Comic Sans MS', cursive;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .subscription-form input {
+            font-family: 'Comic Sans MS', cursive;
+            width: 200px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .subscription-form button {
+            font-family: 'Comic Sans MS', cursive;
+            background-color: #FF8C5E;
+            color: #FFF;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        #scrollToTopButton {
+            font-family: 'Comic Sans MS', cursive;
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgb(102, 134, 68);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        body{  
+            background-image: url('WhiteT.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 20;
+            padding-top: 230px;
+        }
+            body.dark-mode{
+            background-color: #222;
+            color: #FFF;
+        }
+        
+        .theme-toggle{
+            background-color:  rgb(184, 223, 148);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .theme-toggle:hover{
+            background-color:  rgb(125, 151, 100);
+        }
+    </style>
+</head>
+
+<body>
+  <header>
+    <a href="project.html" class="logo">Игры и ключи</a>
+    <nav>
+        <ul>
+            <li><a href="project.html">Главная</a></li>
+            <li><a href="page2.html">Видео</a></li>
+            <li><a href="page3.html">Товары</a></li>
+        </ul>
+    </nav>
+    <div class="Search">
+        <input type="text" placeholder="Поиск по сайту">
+        <button>Найти</button>
+    </div>
+    <button onclick="scrollToTop()" id="scrollToTopButton">Наверх</button>
+    <button class="theme-toggle" onclick="toggleDarkMode()"> Тёмная тема  </button>
+</header>
+
+
+
+<main>
+  <div class="slider-container">
+      <div class="slider">
+          <div class="slide">
+              <iframe width="100%" height="auto" src="https://www.youtube.com/embed/TLG3KdJ8d6Q"
+                  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              <p>Xbox</p>
+          </div>
+          <div class="slide">
+              <iframe width="100%" height="auto" src="https://www.youtube.com/embed/ph5tgbo_2OY"
+                  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              <p>Xbox pass</p>
+          </div>
+          <div class="slide">
+              <iframe width="100%" height="auto" src="https://www.youtube.com/embed/lD7twuq1AoU"
+                  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              <p>Minecraft</p>
+          </div>
+          <div class="slide">
+              <iframe width="100%" height="auto" src="https://www.youtube.com/embed/TLG3KdJ8d6Q"
+                  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              <p>Xbox ultimate</p>
+          </div>
+          <div class="slide">
+              <iframe width="100%" height="auto" src="https://www.youtube.com/embed/D2Z9oKTzzrM"
+                  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              <p>MinecraftPE</p>
+          </div>
+          <div class="slide">
+              <iframe width="100%" height="auto" src="https://www.youtube.com/embed/mJczpIdONjs"
+                  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              <p>Dungeons</p>
+          </div>
+          <div class="slide">
+              <iframe width="100%" height="auto" src="https://www.youtube.com/embed/jMe3tdyjouM"
+                  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              <p>live</p>
+          </div>
+      </div>
+      <button class="prev">&#60;</button>
+      <button class="next">&#62;</button>
+  </div>
+</main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="contact-info">
+                <h3>Контактная информация</h3>
+                <p><a href="mailto:info@example.com">info@example.com</a></p>
+                <p><a href="tel:+123456789">+1 (234) 567-89</a></p>
+                <p>Адрес: ул. Абая, д. 123, г. Алматы</p>
+            </div>
+            <div class="social-links">
+                <a href="https://www.youtube.com"><img src="youtube.png" alt="YouTube" class="social-icon"></a>
+                <a href="https://www.instagram.com"><img src="instagram.png" alt="Instagram" class="social-icon"></a>
+                <a href="https://www.telegram.org"><img src="telegram.png" alt="Telegram" class="social-icon"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.onscroll = function () {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("scrollToTopButton").style.display = "block";
+            } else {
+                document.getElementById("scrollToTopButton").style.display = "none";
+            }
+        };
+
+        document.getElementById("scrollToTopButton").onclick = function () {
+            scrollToTop();
+        };
+
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+        // Slider functionality
+        const slider = document.querySelector('.slider');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        let counter = 0;
+
+        nextBtn.addEventListener('click', () => {
+            if (counter < 6) {
+                counter++;
+                slider.style.transform = `translateX(${-33.333 * counter}%)`;
+            } else {
+                counter = 0;
+                slider.style.transform = `translateX(0)`;
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (counter > 0) {
+                counter--;
+                slider.style.transform = `translateX(${-33.333 * counter}%)`;
+            } else {
+                counter = 6;
+                slider.style.transform = `translateX(${-33.333 * counter}%)`;
+            }
+        });
+        function parallaxScroll(){
+          const body = document.querySelector('body');
+          const scrolled = window.pageYOffset = -(scrolled * 0.3) +'px';
+        }
+        window.addEventListener('scroll', parallaxScroll);
+        function toggleDarkMode(){
+          var body = document.body;
+          body.classList.toggle('dark-mode');
+          if (body.classList.contains('dark-mode')){
+            document.querySelector('.theme-toggle').innerText = 'Светлая тема';
+            body.style.backgroundImage = "url(DarkT.jpg)";
+          }
+          else{
+            document.querySelector('.theme-toggle').innerText = 'Тёмная тема';
+            body.style.backgroundImage = "url(WhiteT.jpg)";
+          }
+      }
+    </script>
+</body>
+
+</html>
